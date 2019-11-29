@@ -1,0 +1,79 @@
+//HEADER STYLES
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  max-width: 160px;
+  width: 100%;
+}
+
+//mobile menu
+
+.main-menu {
+  position: absolute;
+  width: 250px;
+  height: 100vh;
+  background: aliceblue;
+  margin: 0;
+  left: 0;
+  padding: 30px 0 0 0;
+  &-btn {
+    background: none;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  padding: 26px 0 0 15px;
+  &__item {
+    display: block;
+    color: #444444;
+    margin-bottom: 20px;
+    font-family: SourceSansPro-Regular, sans-serif;
+    transition: .1s;
+    &:hover {
+      color: #ef6c00;
+      text-decoration: none;
+    }
+    &:focus {
+      color: #283593;
+    }
+  }
+}
+
+.authorized-user {
+  padding: 0 0 23px 15px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.user {
+  &-photo {
+    width: 67px;
+    height: 67px;
+    border-radius: 50px;
+    &__avatar {
+      width: 100%;
+      border-radius: inherit;
+    }
+  }
+  &-name {
+    margin: 12px 0 3px;
+    font-size: 19px;
+    font-family: SourceSansPro-Bold, sans-serif;
+  }
+  &-email {
+    font-family: SourceSansPro-Regular, sans-serif;
+    color: #8d8c8c;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+}
+

@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Overpass-SemiBold';
+    src: url('./overpass/Overpass-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'SourceSansPro-Regular';
+    src: url('./sourceSansPro/SourceSansPro-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'SourceSansPro-Bold';
+    src: url('./sourceSansPro/SourceSansPro-Bold.ttf') format('truetype');
+    font-weight: 400;
+}
+
