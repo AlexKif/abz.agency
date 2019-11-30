@@ -1,7 +1,11 @@
-//HEADER STYLES
+$sourceSansPro-Bold: SourceSansPro-Bold, sans-serif;
+$sourceSansPro-Regular: SourceSansPro-Regular, sans-serif;
 
-.header-wrap {
-}
+$primaryColor: #ef6c00;
+$secondaryColor: #283593;
+$whiteColor: #fff;
+
+//HEADER STYLES
 
 .header {
   min-height: 64px;
@@ -12,7 +16,6 @@
 .header-wrap {
   display: flex;
   justify-content: space-between;
-  //padding: 0 31px !important;
 }
 
 .logo {
@@ -30,7 +33,7 @@
   position: absolute;
   width: 250px;
   height: 100vh;
-  background: #fff;
+  background: $whiteColor;
   margin: 0;
   left: 0;
   padding: 10px 0 0 0;
@@ -52,15 +55,15 @@
     display: block;
     color: #444444;
     margin-bottom: 20px;
-    font-family: SourceSansPro-Regular, sans-serif;
+    font-family: $sourceSansPro-Regular;
     transition: .2s;
     width: max-content;
     &:hover {
-      color: #ef6c00;
+      color: $primaryColor;
       text-decoration: none;
     }
     &:focus {
-      color: #283593;
+      color: $secondaryColor;
     }
   }
 }
@@ -86,10 +89,10 @@
   &-name {
     margin: 12px 0 3px;
     font-size: 19px;
-    font-family: SourceSansPro-Bold, sans-serif;
+    font-family: $sourceSansPro-Bold;
   }
   &-email {
-    font-family: SourceSansPro-Regular, sans-serif;
+    font-family: $sourceSansPro-Regular;
     color: #8d8c8c;
     font-size: 11px;
     letter-spacing: 1px;
@@ -174,7 +177,7 @@
       }
     }
     &-name {
-      font-family: SourceSansPro-Regular, sans-serif;
+      font-family: $sourceSansPro-Regular;
       font-size: 14px;
       text-align: right;
     }
