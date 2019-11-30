@@ -76,7 +76,7 @@
 
 .user {
   &-photo {
-    max-width: 67px;
+    width: 67px;
     border-radius: 50px;
     &__avatar {
       width: 100%;
@@ -164,8 +164,8 @@
   .user {
     &-photo {
       order: 1;
-      max-width: 39px;
-      margin-right: 6px;
+      width: 39px;
+      margin-right: 18px;
     }
     &-data {
       margin-right: 14px;
@@ -181,6 +181,17 @@
     &-email {
       letter-spacing: .5px;
     }
+  }
+}
+
+//Desktop++ menu
+
+@media screen and (min-width: 1170px){
+  .header-wrap {
+    padding: 0 15px !important;
+  }
+  .logo {
+    max-width: 310px;
   }
 }
 
