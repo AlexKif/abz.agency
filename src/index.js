@@ -8,7 +8,7 @@ import {applyMiddleware, compose, createStore} from "redux";
 import appState from "./reducers";
 import thunk from "redux-thunk";
 
-import 'bootstrap/dist/css/bootstrap.css';
+import './resources/bootstrap/bootstrapDesign/bootstrap.custom.scss'
 import './index.css';
 import './fonts/fonts.css';
 

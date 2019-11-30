@@ -1,28 +1,43 @@
 //HEADER STYLES
 
+.header-wrap {
+}
+
 .header {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.header-wrap {
   display: flex;
   justify-content: space-between;
+  //padding: 0 31px !important;
 }
 
 .logo {
-  max-width: 160px;
+  max-width: 134px;
   width: 100%;
+  margin: 0;
+  &__abz {
+    display: block;
+  }
 }
 
-//mobile menu
+//Mobile menu
 
 .main-menu {
   position: absolute;
   width: 250px;
   height: 100vh;
-  background: aliceblue;
+  background: #fff;
   margin: 0;
   left: 0;
-  padding: 30px 0 0 0;
+  padding: 10px 0 0 0;
   &-btn {
     background: none;
     border: none;
+    padding: 0;
     &:focus {
       outline: none;
     }
@@ -32,13 +47,14 @@
 .navigation {
   display: flex;
   flex-direction: column;
-  padding: 26px 0 0 15px;
+  padding: 10px 0 0 15px;
   &__item {
     display: block;
     color: #444444;
     margin-bottom: 20px;
     font-family: SourceSansPro-Regular, sans-serif;
-    transition: .1s;
+    transition: .2s;
+    width: max-content;
     &:hover {
       color: #ef6c00;
       text-decoration: none;
@@ -49,6 +65,10 @@
   }
 }
 
+.sign-out-btn, .menu-hidden {
+  display: none;
+}
+
 .authorized-user {
   padding: 0 0 23px 15px;
   border-bottom: 1px solid #e1e1e1;
@@ -56,8 +76,7 @@
 
 .user {
   &-photo {
-    width: 67px;
-    height: 67px;
+    max-width: 67px;
     border-radius: 50px;
     &__avatar {
       width: 100%;
@@ -74,6 +93,94 @@
     color: #8d8c8c;
     font-size: 11px;
     letter-spacing: 1px;
+  }
+}
+
+//Desktop menu
+
+@media screen and (min-width: 1024px){
+
+  .header-wrap {
+    padding: 0 44px !important;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    max-width: 200px;
+    a {
+      max-width: 136px;
+    }
+  }
+
+  .main-menu {
+    position: static;
+    padding: 0;
+    width: 100%;
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    &-btn {
+      display: none;
+    }
+  }
+
+  .navigation {
+    flex-direction: row;
+    padding: 0;
+    max-width: 455px;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    &__item {
+      margin: 0;
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  .sign-out-btn {
+    display: block;
+    order: 1;
+    background: none;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .menu-hidden {
+    display: flex;
+  }
+
+  .authorized-user {
+    order: 1;
+    display: flex;
+    border-bottom: none;
+    padding: 0;
+  }
+
+  .user {
+    &-photo {
+      order: 1;
+      max-width: 39px;
+      margin-right: 6px;
+    }
+    &-data {
+      margin-right: 14px;
+      p {
+        margin: 0;
+      }
+    }
+    &-name {
+      font-family: SourceSansPro-Regular, sans-serif;
+      font-size: 14px;
+      text-align: right;
+    }
+    &-email {
+      letter-spacing: .5px;
+    }
   }
 }
 
