@@ -1,9 +1,4 @@
-$sourceSansPro-Bold: SourceSansPro-Bold, sans-serif;
-$sourceSansPro-Regular: SourceSansPro-Regular, sans-serif;
-
-$primaryColor: #ef6c00;
-$secondaryColor: #283593;
-$whiteColor: #fff;
+@import "./../variables";
 
 //HEADER STYLES
 
@@ -99,12 +94,19 @@ $whiteColor: #fff;
   }
 }
 
+//Tablet menu
+
+@media screen and (min-width: 321px) {
+  .header-wrap {
+    padding: 0 24px !important;
+  }
+}
+
 //Desktop menu
 
 @media screen and (min-width: 1024px){
 
   .header-wrap {
-    padding: 0 44px !important;
     display: flex;
     align-items: center;
   }

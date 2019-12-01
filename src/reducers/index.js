@@ -1,8 +1,8 @@
 import {combineReducers} from "redux";
-import {weatherReducer} from "./weatherReducer";
+import {usersReducer} from "./usersReducer";
 
 const appState = combineReducers({
-    weatherReducer
+    usersReducer: usersReducer
 });
 
 export default appState;

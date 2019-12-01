@@ -4,7 +4,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from "react-redux";
 import {BrowserRouter} from "react-router-dom";
-import {applyMiddleware, compose, createStore} from "redux";
+import {applyMiddleware, createStore} from "redux";
 import appState from "./reducers";
 import thunk from "redux-thunk";
 
@@ -14,7 +14,7 @@ import './fonts/fonts.css';
 
 const store = createStore(
     appState,
-    compose(applyMiddleware(thunk))
+    applyMiddleware(thunk)
 );
 
 ReactDOM.render(

@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
-
 import './style.scss'
+import {getUser} from "../../actions/usersAction";
+import {connect} from "react-redux";
 
 class Header extends Component {
+
     state = {
       menuOpen: false
     };
@@ -15,6 +17,11 @@ class Header extends Component {
             this.setState({menuOpen: true})
         }
     };
+
+    componentDidMount() {
+        this.props.dispatch(getUser(1))
+    }
+
     render() {
         const {menuOpen} = this.state;
         return (
@@ -22,16 +29,18 @@ class Header extends Component {
                 <div className="custom-container header-wrap">
                     <h1 className="logo"><Link to="/" className="d-block"><img src="./images/logo.svg" alt="abz" className="logo__abz"/></Link></h1>
                     <menu className={menuOpen ? "main-menu": "main-menu menu-hidden"}>
+                        {this.props.user ? (
                         <div className="authorized-user">
                             <div className="user-photo">
-                                <img src="./images/user-superstar-2x.jpg" alt="user-avatar" className="user-photo__avatar"/>
+                                <img src={this.props.user.user.photo} alt="user-avatar" className="user-photo__avatar"/>
                             </div>
                             <div className="user-data">
-                                <p className="user-name">Superstar</p>
-                                <p className="user-email">Superstar@gmail.com</p>
+                                <p className="user-name">{this.props.user.user.name}</p>
+                                <p className="user-email">{this.props.user.user.email}</p>
                             </div>
                             <button type="button" className="sign-out-btn"><img src="./images/sign-out.svg" alt="sign-out"/></button>
                         </div>
+                        ): undefined}
                         <nav className="navigation">
                             <Link to="/about-me" className="navigation__item">About me</Link>
                             <Link to="/relationships" className="navigation__item">Relationships</Link>
@@ -48,4 +57,10 @@ class Header extends Component {
     }
 }
 
-export default Header;
+function mapStateToProps ({usersReducer}) {
+    return {
+        user: usersReducer.user
+    }
+}
+
+export default connect(mapStateToProps)(Header);
