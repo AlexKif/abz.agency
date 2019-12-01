@@ -4,7 +4,10 @@ import TextTruncate from 'react-text-truncate';
 import './style.scss'
 
 class Banner extends Component {
+
     render() {
+        const isMobile = window.innerWidth < 321;
+        const showItems = isMobile ? 3 : 6;
         return (
             <section className="banner">
                 <div className="custom-container">
@@ -14,7 +17,7 @@ class Banner extends Component {
                         </h1>
                         <TextTruncate
                             className="banner-case__content"
-                            line={3}
+                            line={showItems}
                             element="div"
                             truncateText=" ..."
                             text="We kindly remind you that your test assignment should be submitted

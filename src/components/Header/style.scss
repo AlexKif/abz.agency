@@ -106,9 +106,12 @@
 
 @media screen and (min-width: 1024px){
 
-  .header-wrap {
-    display: flex;
-    align-items: center;
+  .header {
+    padding: 0 20px;
+    &-wrap {
+      display: flex;
+      align-items: center;
+    }
   }
 
   .logo {
@@ -170,7 +173,7 @@
     &-photo {
       order: 1;
       width: 39px;
-      margin-right: 18px;
+      margin-right: 8px;
     }
     &-data {
       margin-right: 14px;
