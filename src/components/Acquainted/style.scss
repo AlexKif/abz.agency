@@ -40,9 +40,6 @@
         justify-content: flex-end;
       }
     }
-    .second-paragraph {
-
-    }
     &__headline {
       font-size: 42px;
     }
@@ -55,9 +52,6 @@
 @media screen and (min-width: 769px) {
   .acquainted {
     padding: 137px 0 111px;
-    &__text {
-
-    }
     &-content {
       padding-top: 17px;
       &-text {
@@ -65,20 +59,10 @@
       }
     }
     &__man {
-      margin: 0;
       max-width: 100%;
       &-wrap {
         padding-right: 0 !important;
       }
-    }
-    .second-paragraph {
-
-    }
-    &__headline {
-      font-size: 42px;
-    }
-    &__sub-headline {
-      font-size: 26px;
     }
   }
 }
@@ -86,28 +70,13 @@
 @media screen and (min-width: 1170px) {
   .acquainted {
     padding: 137px 0 82px;
-    &__text {
-
-    }
     &-content {
       padding-top: 37px;
-      &-text {
-        padding: 17px 0 0 9px;
-      }
     }
     &__man {
-      margin: 0;
-      max-width: 100%;
       &-wrap {
-        padding-right: 0 !important;
         justify-content: center;
       }
-    }
-    .second-paragraph {
-
-    }
-    &__headline {
-      font-size: 42px;
     }
     &__sub-headline {
       margin-bottom: 0;
