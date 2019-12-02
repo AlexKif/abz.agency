@@ -26,7 +26,7 @@
 @media screen and (min-width: 576px) {
   .acquainted {
     text-align: left;
-    padding: 114px 0 134px;
+    padding: 110px 0 134px;
     &__text {
       letter-spacing: .2px;
     }
@@ -39,12 +39,6 @@
         display: flex;
         justify-content: flex-end;
       }
-    }
-    &__headline {
-      font-size: 42px;
-    }
-    &__sub-headline {
-      font-size: 26px;
     }
   }
 }

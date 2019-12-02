@@ -4,6 +4,7 @@ import Banner from "./components/Banner/Banner";
 import Acquainted from "./components/Acquainted/Acquainted";
 
 import './App.scss';
+import Technologies from "./components/Technologies/Technologies";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Header/>
         <Banner/>
         <Acquainted/>
+        <Technologies/>
     </div>
   );
 }
