@@ -8,9 +8,10 @@ import {applyMiddleware, createStore} from "redux";
 import appState from "./reducers";
 import thunk from "redux-thunk";
 
-import './resources/bootstrap/bootstrapDesign/bootstrap.custom.scss'
 import './index.css';
 import './fonts/fonts.css';
+import './resources/bootstrap/bootstrapDesign/bootstrap.custom.scss'
+
 
 const store = createStore(
     appState,

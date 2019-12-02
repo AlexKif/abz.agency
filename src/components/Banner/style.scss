@@ -32,6 +32,9 @@
       &:focus {
         outline: none;
       }
+      &:hover {
+        background: #FC831F;
+      }
     }
   }
 }
@@ -89,8 +92,9 @@
   .banner {
     background: url('/images/banner-bg/banner-bg-2560x676.jpg') no-repeat top center;
     height: 676px;
+    padding-left: 0;
     &-case {
-
+      max-width: 540px;
       &__headline {
         //font-size: 50px;
       }
@@ -100,7 +104,7 @@
       }
 
       &__login {
-
+        margin-top: 35px;
       }
     }
   }

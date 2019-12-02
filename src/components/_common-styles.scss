@@ -1,0 +1,26 @@
+@import "variables";
+
+.headline {
+  font-size: 26px;
+  font-family: $overpass-SemiBold;
+  text-align: center;
+}
+
+.sub-headline {
+  font-size: 22px;
+  font-family: $overpass-SemiBold;
+  letter-spacing: .2px;
+  margin-bottom: 12px;
+}
+
+.secondary-btn {
+  font-size: 22px;
+  color: $primaryColor;
+  border: none;
+  background: none;
+  font-family: $sourceSansPro-Bold;
+  &:focus {
+    outline: none;
+  }
+}
+
