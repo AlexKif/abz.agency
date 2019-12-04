@@ -1,0 +1,110 @@
+@import "./../variables";
+
+.requirements {
+  background: url("/images/requirements/third-block-bg/third-block-bg-320x1031.jpg") no-repeat center center;
+  background-size: cover;
+  color: $whiteColor;
+  padding: 66px 0 43px 0;
+  &-content {
+    text-align: center;
+    padding-top: 25px;
+    &__paragraph {
+      color: inherit;
+      line-height: 22px;
+      margin-bottom: 22px;
+    }
+  }
+  &-img {
+    display: flex;
+    justify-content: center;
+    &-wrap {
+      background: url("/images/requirements/man-laptop-v1.svg") no-repeat center center;
+      background-size: cover;
+      width: 257px;
+      height: 216px;
+      justify-content: center;
+      display: flex;
+    }
+  }
+  &__headline {
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (min-width: 321px){
+  .requirements {
+    background: url("/images/requirements/third-block-bg/third-block-bg-768x878.jpg") no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .requirements {
+    padding: 115px 0 97px 0;
+    &__headline {
+      margin-bottom: 38px;
+    }
+    &-content {
+      order: -1;
+      padding: 0;
+      text-align: left;
+      &__paragraph {
+        line-height: 22px;
+      }
+      &-wrap {
+        padding-left: 10px;
+      }
+    }
+    &-img {
+      justify-content: center;
+      &-wrap {
+        background: url("/images/requirements/man-laptop-v2.svg") no-repeat center center;
+        width: 343px;
+        height: 407px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px){
+  .requirements {
+    background: url("/images/requirements/third-block-bg/third-block-bg-1024x755.jpg") no-repeat center center;
+    background-size: cover;
+    padding: 135px 0 99px 0;
+    &-img {
+      padding-top: 15px;
+      &-wrap {
+        background: url("/images/requirements/man-laptop-v1.svg") no-repeat center center;
+        width: 429px;
+        height: 362px;
+      }
+    }
+    &-content-wrap {
+      padding-left: 32px;
+    }
+    &-content {
+      &__paragraph {
+        margin-bottom: 34px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .requirements {
+    background: url("/images/requirements/third-block-bg/third-block-bg-2560x692.jpg") no-repeat center center;
+    background-size: cover;
+    padding-bottom: 101px;
+    &-content {
+      &-wrap {
+        padding: 0;
+      }
+      &__paragraph {
+        margin-bottom: 22px;
+      }
+    }
+    &-img {
+      padding-top: 5px;
+    }
+  }
+}

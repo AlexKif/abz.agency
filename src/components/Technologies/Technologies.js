@@ -13,7 +13,7 @@ function Technologies(props) {
                     </Col>
                 </Row>
                 <Row className="technologies-wrap">
-                    <Col md={10} lg={4} className="technologies-box">
+                    <Col sm={12} md={10} lg={4} className="technologies-box">
                         <div className="technologies-box__item">
                             <div className="technologies-box__item-wrap">
                                 <img src="/images/technologies/html.svg"
@@ -29,7 +29,7 @@ function Technologies(props) {
                             </div>
                         </div>
                     </Col>
-                    <Col md={10} lg={4} className="technologies-box">
+                    <Col sm={12} md={10} lg={4} className="technologies-box">
                         <div className="technologies-box__item">
                             <div className="technologies-box__item-wrap">
                                 <img src="/images/technologies/css.svg"
@@ -45,7 +45,7 @@ function Technologies(props) {
                             </div>
                         </div>
                     </Col>
-                    <Col md={10} lg={4} className="technologies-box">
+                    <Col sm={12} md={10} lg={4} className="technologies-box">
                         <div className="technologies-box__item">
                             <div className="technologies-box__item-wrap">
                                 <img src="/images/technologies/javascript.svg"

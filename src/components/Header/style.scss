@@ -6,6 +6,10 @@
   min-height: 64px;
   display: flex;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background: $whiteColor;
+  z-index: 5;
 }
 
 .header-wrap {
