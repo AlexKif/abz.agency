@@ -48,8 +48,8 @@
     padding: 137px 0 111px;
     &-content {
       padding-top: 17px;
-      &-text {
-        padding: 17px 0 0 9px;
+      &__text {
+        padding: 18px 0 0 10px;
       }
     }
     &__man {
@@ -57,6 +57,9 @@
       &-wrap {
         padding-right: 0 !important;
       }
+    }
+    &__sub-headline {
+      margin-bottom: 7px;
     }
   }
 }
@@ -66,6 +69,9 @@
     padding: 137px 0 82px;
     &-content {
       padding-top: 37px;
+      &__text {
+        padding: 0;
+      }
     }
     &__man {
       &-wrap {
@@ -77,3 +83,6 @@
     }
   }
 }
+
+
+

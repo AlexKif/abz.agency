@@ -8,12 +8,12 @@ function Technologies(props) {
         <section className="technologies">
             <div className="custom-container">
                 <Row className="justify-content-center">
-                    <Col md="10">
+                    <Col sm={10} lg={7} xl={6}>
                         <h3 className="headline">About my relationships with web-development</h3>
                     </Col>
                 </Row>
                 <Row className="technologies-wrap">
-                    <Col md={10} className="technologies-box">
+                    <Col md={10} lg={4} className="technologies-box">
                         <div className="technologies-box__item">
                             <div className="technologies-box__item-wrap">
                                 <img src="/images/technologies/html.svg"
@@ -29,7 +29,7 @@ function Technologies(props) {
                             </div>
                         </div>
                     </Col>
-                    <Col md={10} className="technologies-box">
+                    <Col md={10} lg={4} className="technologies-box">
                         <div className="technologies-box__item">
                             <div className="technologies-box__item-wrap">
                                 <img src="/images/technologies/css.svg"
@@ -45,7 +45,7 @@ function Technologies(props) {
                             </div>
                         </div>
                     </Col>
-                    <Col md={10} className="technologies-box">
+                    <Col md={10} lg={4} className="technologies-box">
                         <div className="technologies-box__item">
                             <div className="technologies-box__item-wrap">
                                 <img src="/images/technologies/javascript.svg"
