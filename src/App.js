@@ -6,6 +6,7 @@ import Technologies from "./components/Technologies/Technologies";
 import Requirements from "./components/Requirements/Requirements";
 
 import './App.scss';
+import Users from "./components/Users/Users";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Acquainted/>
         <Technologies/>
         <Requirements/>
+        <Users/>
     </div>
   );
 }

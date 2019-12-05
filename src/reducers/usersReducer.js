@@ -2,7 +2,8 @@ import {userConstants} from "../constans/userConstants";
 
 
 export const initialState = {
-  user: undefined
+  user: undefined,
+  users: []
 };
 
 export const usersReducer = (state = initialState, action) => {
@@ -10,6 +11,10 @@ export const usersReducer = (state = initialState, action) => {
     case userConstants.ADD_USER:
       return {
         ...state, user: action.user
+      };
+    case userConstants.ALL_USERS:
+      return  {
+        ...state, users: action.users
       };
     default:
       return state;
