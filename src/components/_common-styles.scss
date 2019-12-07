@@ -26,17 +26,53 @@
   margin-bottom: 0;
 }
 
+.attention {
+  max-width: 175px;
+  font-size: 16px;
+  font-family: $sourceSansPro-Regular;
+  margin-bottom: 0;
+  @media screen and (min-width: 768px){
+    max-width: 100%;
+    font-size: 18px;
+
+  }
+}
+
 .secondary-btn {
   font-size: 22px;
   color: $primaryColor;
   border: none;
   background: none;
   font-family: $sourceSansPro-Bold;
+  &_disabled {
+    background: #D7D7D7 !important;
+    color: #8D8C8C !important;
+    border: none !important;
+  }
   &:focus {
     outline: none;
   }
   &:hover {
     color: #FC831F;
+  }
+  &-with-border {
+    background: none;
+    border: 2px solid $primaryColor;
+    height: 40px;
+    color: $primaryColor;
+    border-radius: 3px;
+    font-size: 20px;
+    font-family: $sourceSansPro-Bold;
+    max-width: 290px;
+    width: 100%;
+    &:hover {
+      background: #FEE6D2;
+      color: #FC831F;
+      border-color: #FC831F;
+    }
+    &:focus {
+      outline: none;
+    }
   }
 }
 

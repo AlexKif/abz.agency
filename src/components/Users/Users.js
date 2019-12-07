@@ -9,22 +9,30 @@ import './style.scss'
 
 class Users extends Component {
 
+    state = {
+        pagination: 2,
+    };
+
     componentDidMount() {
-        if (window.innerWidth <= 767) {
-            this.getUsers(1,3)
-        } else {
-            this.getUsers(1,6)
-        }
+        this.getUsers(1, this.umberOfUsers());
     }
 
+    umberOfUsers = () => {
+        const isMobile = window.innerWidth < 767;
+        const renderUsers = isMobile ? 3: 6;
+        return renderUsers;
+    };
 
     getUsers = (page, count) => {
         const {dispatch} = this.props;
-        dispatch(getAllUsers(page,count))
+        dispatch(getAllUsers(page,count));
     };
 
     showMoreUsers = () => {
-        this.getUsers(1,7)
+        let pagination = this.state.pagination;
+        pagination++;
+        this.setState({pagination: pagination});
+        this.getUsers(this.state.pagination, this.umberOfUsers())
     };
 
     render() {
@@ -32,7 +40,7 @@ class Users extends Component {
             <section className="users">
                 <div className="custom-container">
                     <UsersTitle/>
-                    <User showMoreUsers={this.showMoreUsers} users={this.props.usersReducer}/>
+                    <User showMoreUsers={this.showMoreUsers} users={this.props.usersReducer} totalUsers={this.props.totalUsers}/>
                 </div>
             </section>
         );
@@ -41,7 +49,8 @@ class Users extends Component {
 
 const mapStateToProps = ({usersReducer}) => {
     return {
-        usersReducer:usersReducer.users
+        usersReducer:usersReducer.users,
+        totalUsers: usersReducer.totalUsers
     };
 };
 

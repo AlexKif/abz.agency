@@ -1,12 +1,15 @@
 import React from 'react';
 import {Col, Row} from "reactstrap";
 
+import './style.scss'
+
 function UsersTitle(props) {
     return (
         <Row>
-            <Col>
-                <div className="d-flex justify-content-center">
-                    <h3>Our cheerful users</h3>
+            <Col md={12}>
+                <div className="usersTitle-wrap">
+                    <h3 className="headline">Our cheerful users</h3>
+                    <p className="attention">Attention! Sorting users by registration date</p>
                 </div>
             </Col>
         </Row>

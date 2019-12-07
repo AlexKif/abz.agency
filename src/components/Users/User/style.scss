@@ -1,0 +1,87 @@
+@import "./../../variables";
+
+.user {
+  &-information {
+    width: 100%;
+    padding: 12px 0 25px;
+    &__name, h5 {
+      font-size: 22px;
+      font-family: $overpass-SemiBold;
+      margin-bottom: 0;
+    }
+    &__item, p {
+      color: #4c4b4b;
+      font-size: 14px;
+      font-family: $sourceSansPro-Regular;
+      margin-bottom: 0;
+    }
+  }
+  &__photo {
+    max-width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: inherit;
+    }
+  }
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .user {
+    &-item {
+      margin-top: 32px;
+    }
+    &-information {
+      padding-top: 14px;
+    }
+  }
+}
+
+@media screen and (min-width: 992px){
+  .user {
+    &-container {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+    }
+    &__photo {
+      position: absolute;
+      top: 0;
+    }
+    &-item {
+      margin-top: 70px;
+    }
+    &-information {
+      max-width: 210px;
+      text-align: left;
+      padding-top: 25px;
+      padding-left: 80px;
+      min-width: 100%;
+      p {
+        margin-top: 3px;
+      }
+    }
+    &-flow {
+      padding: 0 30px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .user {
+    &-flow {
+      padding: 0;
+    }
+    &-item {
+      margin-top: 50px;
+    }
+  }
+}

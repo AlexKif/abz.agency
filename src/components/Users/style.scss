@@ -1,33 +1,15 @@
-@import "./../variables";
-
-.user {
-  &-information {
-    &__name {
-      font-size: 22px;
-      font-family: $overpass-SemiBold;
-      margin-bottom: 0;
-    }
-    &__item {
-      color: #4c4b4b;
-      font-size: 14px;
-      font-family: $sourceSansPro-Regular;
-      margin-bottom: 0;
-    }
+.users {
+  padding: 69px 0 70px;
+  @media screen and (min-width: 768px) {
+    padding: 115px 0 143px;
   }
-  &__photo {
-    max-width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    overflow: hidden;
-    img {
-      width: 100%;
-      height: inherit;
-    }
+  @media screen and (min-width: 992px) {
+    padding: 137px 0 143px;
   }
-  &-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  @media screen and (min-width: 1200px) {
+    padding: 137px 0 152px;
   }
 }
+
+
+
