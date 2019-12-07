@@ -38,9 +38,7 @@ function User(props) {
                 ))}
                 <Col md={12} className="d-flex justify-content-center">
                     <button disabled={isAllUsers}
-                            className={isAllUsers ?
-                                "secondary-btn_disabled secondary-btn-with-border":
-                                "secondary-btn-with-border"}
+                            className={isAllUsers ? "d-none": "secondary-btn-with-border"}
                             onClick={props.showMoreUsers}>Show more</button>
                 </Col>
             </Row>

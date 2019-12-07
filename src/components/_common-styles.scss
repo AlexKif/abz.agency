@@ -44,11 +44,6 @@
   border: none;
   background: none;
   font-family: $sourceSansPro-Bold;
-  &_disabled {
-    background: #D7D7D7 !important;
-    color: #8D8C8C !important;
-    border: none !important;
-  }
   &:focus {
     outline: none;
   }
