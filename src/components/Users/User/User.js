@@ -47,5 +47,3 @@ function User(props) {
 }
 
 export default User;
-
-// "secondary-btn-with-border"

@@ -4,7 +4,8 @@ import {userConstants} from "../constans/userConstants";
 export const initialState = {
   user: undefined,
   totalUsers: null,
-  users: []
+  users: [],
+  positions: []
 };
 
 export const usersReducer = (state = initialState, action) => {
@@ -16,6 +17,10 @@ export const usersReducer = (state = initialState, action) => {
     case userConstants.ALL_USERS:
       return  {
         ...state, users: [...state.users, ...action.users.users], totalUsers: action.users.total_users
+      };
+    case userConstants.ALL_POSITION:
+      return {
+        ...state, positions: action.positions
       };
     default:
       return state;

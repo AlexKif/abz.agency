@@ -27,6 +27,18 @@ export const getAllUsers = (page, count) => {
   }
 };
 
+export const getPosition = () => {
+    return (dispatch) => {
+        return usersServices.getPosition().then(positions => dispatch(getPosition(positions)))
+    };
+    
+    function getPosition(positions) {
+        return {
+            type: userConstants.ALL_POSITION, positions
+        }
+    }
+};
+
 
 
 

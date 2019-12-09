@@ -5,6 +5,7 @@ import User from "./User/User";
 import UsersTitle from "./UsersTitle/UsersTitle";
 
 import './style.scss'
+import {numberOfUsers} from "../../helpers/renderUsers";
 
 
 class Users extends Component {
@@ -14,14 +15,8 @@ class Users extends Component {
     };
 
     componentDidMount() {
-        this.getUsers(1, this.umberOfUsers());
+        this.getUsers(1, numberOfUsers());
     }
-
-    umberOfUsers = () => {
-        const isMobile = window.innerWidth < 767;
-        const renderUsers = isMobile ? 3: 6;
-        return renderUsers;
-    };
 
     getUsers = (page, count) => {
         const {dispatch} = this.props;
@@ -32,7 +27,7 @@ class Users extends Component {
         let pagination = this.state.pagination;
         pagination++;
         this.setState({pagination: pagination});
-        this.getUsers(this.state.pagination, this.umberOfUsers())
+        this.getUsers(this.state.pagination, numberOfUsers())
     };
 
     render() {
@@ -49,7 +44,7 @@ class Users extends Component {
 
 const mapStateToProps = ({usersReducer}) => {
     return {
-        usersReducer:usersReducer.users,
+        usersReducer: usersReducer.users,
         totalUsers: usersReducer.totalUsers
     };
 };

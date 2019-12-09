@@ -4,10 +4,10 @@ import Banner from "./components/Banner/Banner";
 import Acquainted from "./components/Acquainted/Acquainted";
 import Technologies from "./components/Technologies/Technologies";
 import Requirements from "./components/Requirements/Requirements";
+import Users from "./components/Users/Users";
+import Registration from "./components/Registration/Registration";
 
 import './App.scss';
-import Users from "./components/Users/Users";
-
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <Technologies/>
         <Requirements/>
         <Users/>
+        <Registration/>
     </div>
   );
 }
