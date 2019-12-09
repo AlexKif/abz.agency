@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import RegistrationTitle from "./RegistrationTitle/RegistrationTitle";
 import RegistrationForm from "./RegistrationForm/RegistrationForm";
-import {getAllUsers, getPosition} from "../../actions/usersAction";
+import {getPosition, updateUsers} from "../../actions/usersAction";
 
 import './style.scss'
 import {connect} from "react-redux";
@@ -20,7 +20,7 @@ class Registration extends Component {
     };
 
     onSubmit = (data) => {
-        usersServices.addUser(data).then(res => this.props.dispatch(getAllUsers(0, numberOfUsers())))
+        usersServices.addUser(data).then(res => this.props.dispatch(updateUsers(1, numberOfUsers())))
     };
 
     render() {

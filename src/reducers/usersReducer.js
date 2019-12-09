@@ -22,6 +22,10 @@ export const usersReducer = (state = initialState, action) => {
       return {
         ...state, positions: action.positions
       };
+    case userConstants.UPDATE_USERS:
+      return {
+        ...state, users: [...action.users.users]
+      };
     default:
       return state;
   }

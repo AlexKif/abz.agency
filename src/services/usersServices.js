@@ -33,7 +33,7 @@ function addUser({email, name, phone, photo, position}) {
 
     const formData = new FormData();
 
-    formData.append('position_id', position);
+    formData.append('position_id', Number(position));
     formData.append('name', name);
     formData.append('email', email);
     formData.append('phone', phone);

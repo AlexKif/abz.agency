@@ -39,6 +39,19 @@ export const getPosition = () => {
     }
 };
 
+export const updateUsers = (page, count) => {
+    return dispatch => {
+        usersServices.getAllUsers(page, count)
+            .then(users => dispatch(getAllUsers(users)))
+    };
+
+    function getAllUsers(users) {
+        return {
+            type: userConstants.UPDATE_USERS, users
+        }
+    }
+};
+
 
 
 
