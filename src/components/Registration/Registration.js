@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import RegistrationTitle from "./RegistrationTitle/RegistrationTitle";
 import RegistrationForm from "./RegistrationForm/RegistrationForm";
 import {getPosition, updateUsers} from "../../actions/usersAction";
-
+import { reset } from "redux-form";
 import './style.scss'
 import {connect} from "react-redux";
 import {usersServices} from "../../services/usersServices";
@@ -15,12 +15,10 @@ class Registration extends Component {
         dispatch(getPosition())
     }
 
-    onSelectFile = (event) => {
-        console.log(event.target.files[0]);
-    };
-
     onSubmit = (data) => {
-        usersServices.addUser(data).then(res => this.props.dispatch(updateUsers(1, numberOfUsers())))
+        // console.log(data);
+        usersServices.addUser(data).then(_ => this.props.dispatch(updateUsers(1, numberOfUsers())));
+        this.props.dispatch(reset("registration"));
     };
 
     render() {
@@ -28,7 +26,7 @@ class Registration extends Component {
             <section className="registration">
                 <div className="custom-container">
                     <RegistrationTitle/>
-                    <RegistrationForm position={this.props.positions} onSelectFile={this.onSelectFile} onSubmit={this.onSubmit}/>
+                    <RegistrationForm position={this.props.positions} onSubmit={this.onSubmit}/>
                 </div>
             </section>
         );

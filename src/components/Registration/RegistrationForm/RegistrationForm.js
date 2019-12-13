@@ -2,16 +2,19 @@ import React, {Component} from 'react';
 
 import './style.scss'
 import {Field, reduxForm} from "redux-form";
-import {email, maxLength, minLength, requiredField} from "../../../helpers/validators/validators";
 import {photoUpload, renderField} from "../../../helpers/renderFiled";
+import {validators} from "../../../helpers/validators/validators";
 
-const maxLength60 = maxLength(60);
-const minLength2 = minLength(2);
+const maxLength60 = validators.maxLength(60);
+const minLength2 = validators.minLength(2);
+const weight5mb = validators.weight(5);
+const sizes = validators.sizes(70,70);
+const types = validators.types("image/jpeg, image/jpg");
 
 function RegistrationForm(props) {
     const {positions} = props.position;
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={props.handleSubmit(props.onSubmit.bind(this))}>
             <div className="">
                 <fieldset>
                     <legend>Name</legend>
@@ -19,7 +22,7 @@ function RegistrationForm(props) {
                            name={"name"}
                            component={renderField}
                            type={"text"}
-                           validate={[requiredField, minLength2, maxLength60]}/>
+                           validate={[validators.requiredField, minLength2, maxLength60]}/>
                 </fieldset>
             </div>
             <div className="">
@@ -29,18 +32,20 @@ function RegistrationForm(props) {
                            name={"email"}
                            type={"email"}
                            component={renderField}
-                           validate={[requiredField, email]}/>
+                           validate={[validators.requiredField, validators.email]}/>
                 </fieldset>
             </div>
             <div className="">
                 <fieldset>
                     <legend>Phone</legend>
-                    <Field component={"input"} name={"phone"} placeholder={"Your phone"} />
+                    <Field component={renderField}
+                           name={"phone"} placeholder={"Your phone"}
+                           validate={[validators.requiredField, validators.phone]}/>
                 </fieldset>
             </div>
             <div className="">
-                <Field component={"select"} name={"position"}>
-                    <option value="DEFAULT" disabled>Select your position</option>
+                <Field component={"select"} name={"position"} validate={[validators.requiredField]} required>
+                    <option value="" disabled hidden>Select your position</option>
                     {positions && positions.map((item, index) => (
                         <option key={index} value={item.id}>{item.name}</option>
                     ))}
@@ -48,11 +53,12 @@ function RegistrationForm(props) {
             </div>
             <div className="">
                 <span>Upload your photo</span>
-                <Field component={photoUpload} type={"file"} name="photo"/>
+                <Field component={photoUpload}
+                       type={"file"} name="photo"
+                       validate={[validators.requiredPhoto, weight5mb, sizes, types]} />
             </div>
             <button type={"submit"}>Sign Up</button>
         </form>
     );
 }
-
 export default reduxForm({form: 'registration'})(RegistrationForm);

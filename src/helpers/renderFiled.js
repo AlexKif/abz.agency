@@ -1,6 +1,7 @@
 import React from "react";
 
 export const renderField = ({input, label, type, meta: { touched, error, warning }}) => (
+
     <div>
         <label>{label}</label>
         <div>
@@ -11,13 +12,32 @@ export const renderField = ({input, label, type, meta: { touched, error, warning
     </div>
 );
 
-export const photoUpload = ({ input, type, meta: { touched, error, warning } }) => {
+export const photoUpload = ({input, label, type, meta: { touched, error, warning }}) => {
     delete input.value;
-
+    const handleChange = (event, input) => {
+        event.preventDefault();
+        let imageFile = event.target.files[0];
+        if (imageFile) {
+            const localImageUrl = URL.createObjectURL(imageFile);
+            const imageObject = new window.Image();
+            imageObject.onload = () => {
+                imageFile.width = imageObject.naturalWidth;
+                imageFile.height = imageObject.naturalHeight;
+                input.onChange(imageFile);
+                URL.revokeObjectURL(imageFile);
+            };
+            imageObject.src = localImageUrl;
+        }
+    };
     return (
+    <div>
+        <label>{label}</label>
         <div>
-            <label htmlFor={input.name}>qqq</label>
-            <input {...input} type={type} id={input.name}/>
+            <input {...input} type={type} onChange={event => handleChange(event, input)}/>
+            {touched &&
+            ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
         </div>
+    </div>
     )
 };
+
