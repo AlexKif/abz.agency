@@ -1,18 +1,20 @@
-import React, {Component} from 'react';
-
-import './style.scss'
+import React from 'react';
 import {Field, reduxForm} from "redux-form";
 import {photoUpload, renderField} from "../../../helpers/renderFiled";
 import {validators} from "../../../helpers/validators/validators";
+
+import './style.scss'
 
 const maxLength60 = validators.maxLength(60);
 const minLength2 = validators.minLength(2);
 const weight5mb = validators.weight(5);
 const sizes = validators.sizes(70,70);
-const types = validators.types("image/jpeg, image/jpg");
+const types = validators.validateImageFormat("image/jpeg, image/jpg");
 
 function RegistrationForm(props) {
+
     const {positions} = props.position;
+
     return (
         <form onSubmit={props.handleSubmit(props.onSubmit.bind(this))}>
             <div className="">
@@ -54,8 +56,10 @@ function RegistrationForm(props) {
             <div className="">
                 <span>Upload your photo</span>
                 <Field component={photoUpload}
-                       type={"file"} name="photo"
-                       validate={[validators.requiredPhoto, weight5mb, sizes, types]} />
+                       type={"file"}
+                       name="photo"
+                       validate={[validators.requiredPhoto, types, sizes, weight5mb]}
+                />
             </div>
             <button type={"submit"}>Sign Up</button>
         </form>

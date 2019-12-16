@@ -16,7 +16,7 @@ class Registration extends Component {
     }
 
     onSubmit = (data) => {
-        // console.log(data);
+        console.log('data', data);
         usersServices.addUser(data).then(_ => this.props.dispatch(updateUsers(1, numberOfUsers())));
         this.props.dispatch(reset("registration"));
     };

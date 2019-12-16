@@ -1,7 +1,6 @@
 import React from "react";
 
 export const renderField = ({input, label, type, meta: { touched, error, warning }}) => (
-
     <div>
         <label>{label}</label>
         <div>
@@ -12,7 +11,7 @@ export const renderField = ({input, label, type, meta: { touched, error, warning
     </div>
 );
 
-export const photoUpload = ({input, label, type, meta: { touched, error, warning }}) => {
+export const photoUpload = ({ input, type, meta }) => {
     delete input.value;
     const handleChange = (event, input) => {
         event.preventDefault();
@@ -20,6 +19,7 @@ export const photoUpload = ({input, label, type, meta: { touched, error, warning
         if (imageFile) {
             const localImageUrl = URL.createObjectURL(imageFile);
             const imageObject = new window.Image();
+
             imageObject.onload = () => {
                 imageFile.width = imageObject.naturalWidth;
                 imageFile.height = imageObject.naturalHeight;
@@ -28,16 +28,20 @@ export const photoUpload = ({input, label, type, meta: { touched, error, warning
             };
             imageObject.src = localImageUrl;
         }
+
     };
     return (
-    <div>
-        <label>{label}</label>
         <div>
-            <input {...input} type={type} onChange={event => handleChange(event, input)}/>
-            {touched &&
-            ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+            <input
+                {...input}
+                name={input.name}
+                type={type}
+                onChange={event => handleChange(event, input)}
+            />
+            {(meta.touched && !meta.active && meta.error) && (
+                <span>{meta.error}</span>
+            )}
         </div>
-    </div>
-    )
+    );
 };
 
