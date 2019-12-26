@@ -37,7 +37,7 @@ function addUser({email, name, phone, photo, position}) {
     formData.append('name', name);
     formData.append('email', email);
     formData.append('phone', phone);
-    formData.append('photo', photo[0]);
+    formData.append('photo', photo);
 
     return getUserToken().then(res => {
         return axios.post(`${baseURL}/users`, formData, {headers: {'Token': res.token}}).then(res => res.data)

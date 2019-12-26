@@ -30,17 +30,21 @@ export const photoUpload = ({ input, type, meta, label, className }) => {
     };
     return (
         <Fragment>
-            <label htmlFor={input.name} className={`label-icon-${input.name}`}>{label}</label>
-            <input
-                {...input}
-                name={input.name}
-                type={type}
-                onChange={event => handleChange(event, input)}
-                id={input.name}
-                className={className}
-            />
+            <div className="upload-item-box">
+                <label htmlFor="photo" className="label-text-filed">Upload your photo</label>
+                <label htmlFor={input.name} className={`label-icon-${input.name}`}>{label}</label>
+                <input
+                    {...input}
+                    name={input.name}
+                    type={type}
+                    onChange={event => handleChange(event, input)}
+                    id={input.name}
+                    className={className}
+                />
+            </div>
+
             {(meta.touched && !meta.active && meta.error) && (
-                <span>{meta.error}</span>
+                <span className="upload-item__info">{meta.error}</span>
             )}
         </Fragment>
     );

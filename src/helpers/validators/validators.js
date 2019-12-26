@@ -25,7 +25,7 @@ export const minLength = minLength => value => {
 };
 
 export const weight = mb => photo => {
-    return photo[0] && photo[0].size/Math.pow(10,6) < mb ? undefined: `Photo size cannot be more than ${mb} MB`
+    return photo && photo.size/Math.pow(10,6) < mb ? undefined: `Photo size cannot be more than ${mb} MB`
 };
 
 export const validateImageFormat = typesImg => imageFile => {
@@ -39,7 +39,7 @@ export const validateImageFormat = typesImg => imageFile => {
 };
 
 export const sizes = (minWidth, minHeight) => image => {
-    return image[0] && (image[0].height > minHeight && image[0].width > minWidth) ?
+    return image && (image.height > minHeight && image.width > minWidth) ?
         undefined :
         `Invalid image, min width: ${minWidth}, min height: ${minHeight}`;
 };

@@ -59,7 +59,8 @@ function RegistrationForm(props) {
                            required>
                         <option value=""
                                 disabled
-                                hidden>Select your position</option>
+                                hidden>Select your position
+                        </option>
                         {positions && positions.map((item, index) => (
                             <option key={index} value={item.id}>{item.name}</option>
                         ))}
@@ -69,17 +70,14 @@ function RegistrationForm(props) {
                     </span>
                 </div>
                 <div className="registration-form__item upload-item">
-                    <div className="upload-item-box">
-                        <label htmlFor="photo" className="label-text-filed">Upload your photo</label>
-                        <Field component={photoUpload}
-                               type={"file"}
-                               name="photo"
-                               label={<img src="/images/upload.svg" alt="upload-icon"/>}
-                               className="upload-item-box__field"
-                               validate={[validators.requiredPhoto, types, sizes, weight5mb]}
-                        />
-                    </div>
-                    <p className="upload-item__info">File format jpg  up to 5 MB, the minimum size of 70x70px</p>
+                    <Field component={photoUpload}
+                           type={"file"}
+                           name="photo"
+                           label={<img src="/images/upload.svg" alt="upload-icon"/>}
+                           className="upload-item-box__field"
+                           validate={[validators.requiredPhoto, types, sizes, weight5mb]}
+                    />
+                    {/*<p className="upload-item__info">File format jpg  up to 5 MB, the minimum size of 70x70px</p>*/}
                 </div>
                 <button type={"submit"} className="submit-registration">Sign Up</button>
             </form>
