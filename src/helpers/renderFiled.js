@@ -1,17 +1,15 @@
-import React from "react";
+import React, {Fragment} from "react";
 
-export const renderField = ({input, label, type, meta: { touched, error, warning }}) => (
-    <div>
-        <label>{label}</label>
-        <div>
-            <input {...input} placeholder={label} type={type} />
-            {touched &&
-            ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-        </div>
-    </div>
+export const renderField = ({input, label, className, type, meta: { touched, error, warning }}) => (
+    <Fragment>
+        <label htmlFor={input.name} className="d-none">{label}</label>
+        <input {...input} type={type} className={className} placeholder={label} id={input.name}/>
+        {touched &&
+        ((error && <p className="valid-error">{error}</p>) || (warning && <p>{warning}</p>))}
+    </Fragment>
 );
 
-export const photoUpload = ({ input, type, meta }) => {
+export const photoUpload = ({ input, type, meta, label, className }) => {
     delete input.value;
     const handleChange = (event, input) => {
         event.preventDefault();
@@ -31,17 +29,20 @@ export const photoUpload = ({ input, type, meta }) => {
 
     };
     return (
-        <div>
+        <Fragment>
+            <label htmlFor={input.name} className={`label-icon-${input.name}`}>{label}</label>
             <input
                 {...input}
                 name={input.name}
                 type={type}
                 onChange={event => handleChange(event, input)}
+                id={input.name}
+                className={className}
             />
             {(meta.touched && !meta.active && meta.error) && (
                 <span>{meta.error}</span>
             )}
-        </div>
+        </Fragment>
     );
 };
 

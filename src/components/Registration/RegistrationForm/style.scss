@@ -1,0 +1,114 @@
+@import "../../variables";
+
+.registration-form {
+  padding-top: 5px;
+  &__item {
+    font-family: $sourceSansPro-Regular;
+    &-wrap {
+      border: 1px solid #b7b7b7;
+      padding: 3px 15px 16px;
+      border-radius: 5px;
+      margin-bottom: 27px;
+    }
+    &-name {
+      margin: 0;
+      font-size: 12px;
+      color: #8d8c8c;
+      padding: 0 3px;
+      width: auto;
+    }
+    &-field {
+      border: none;
+      width: 100%;
+      &:focus {
+        outline: none;
+      }
+      &-select {
+        width: 100%;
+        background: none;
+        border: 1px solid #b7b7b7;
+        font-size: 16px;
+        padding: 15px 0 15px 16px;
+        margin-top: 8px;
+        border-radius: 5px;
+        appearance: none;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    &-custom-appearance {
+      position: absolute;
+      top: 22px;
+      right: 13px;
+      z-index: -1;
+    }
+  }
+}
+
+.select-item {
+  position: relative;
+  z-index: 2;
+
+}
+
+.upload-item {
+  &-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+    //width: 100%;
+    &__field {
+      display: none;
+    }
+  }
+  &__info {
+    font-size: 12px;
+    padding: 4px 45px 0 17px;
+    letter-spacing: .1px;
+    color: #8d8c8c;
+    line-height: 16px;
+  }
+}
+
+.submit-registration {
+  background: #d7d7d7;
+  width: 100%;
+  height: 40px;
+  color: #8d8c8c;
+  font-size: 20px;
+  font-family: $sourceSansPro-Bold;
+  border: none;
+  border-radius: 5px;
+  margin-top: 13px;
+
+}
+
+.label-text-filed {
+  border: 1px solid #b7b7b7;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: calc(100% - 55px);
+  border-right: none;
+  margin: 0;
+  padding: 14px 0 0 16px;
+  color: #8d8c8c;
+}
+
+.label-icon-photo {
+  display: block;
+  line-height: 49px;
+  width: 55px;
+  height: 55px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 2px solid $primaryColor;
+  text-align: center;
+  margin: 0;
+}
+
+.valid-error {
+  font-size: 12px;
+  color: red;
+  margin: 0;
+}
