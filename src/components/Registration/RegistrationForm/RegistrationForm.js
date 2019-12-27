@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {Field, reduxForm} from "redux-form";
 import {photoUpload, renderField} from "../../../helpers/renderFiled";
 import {validators} from "../../../helpers/validators/validators";
 
 import './style.scss'
+import {Col, Row} from "reactstrap";
 
 const maxLength60 = validators.maxLength(60);
 const minLength2 = validators.minLength(2);
@@ -18,68 +19,87 @@ function RegistrationForm(props) {
     return (
         <div className="registration-form">
             <form onSubmit={props.handleSubmit(props.onSubmit.bind(this))}>
-                <div className="registration-form__item">
-                    <fieldset className="registration-form__item-wrap">
-                        <legend className="registration-form__item-name">Name</legend>
-                        <Field name="name"
-                               component={renderField}
-                               type="text"
-                               label="Your name"
-                               className="registration-form__item-field"
-                               validate={[validators.requiredField, minLength2, maxLength60]}/>
-                    </fieldset>
-                </div>
-                <div className="registration-form__item">
-                    <fieldset className="registration-form__item-wrap">
-                        <legend className="registration-form__item-name">Email</legend>
-                        <Field label={"Your email"}
-                               name={"email"}
-                               type={"email"}
-                               component={renderField}
-                               className="registration-form__item-field"
-                               validate={[validators.requiredField, validators.email]}/>
-                    </fieldset>
-                </div>
-                <div className="registration-form__item">
-                    <fieldset className="registration-form__item-wrap">
-                        <legend className="registration-form__item-name">Phone</legend>
-                        <Field component={renderField}
-                               name={"phone"}
-                               type={"phone"}
-                               label={"+38 (___) ___ __ __"}
-                               className="registration-form__item-field"
-                               validate={[validators.requiredField, validators.phone]}/>
-                    </fieldset>
-                </div>
-                <div className="registration-form__item select-item">
-                    <Field component={"select"}
-                           name={"position"}
-                           className="registration-form__item-field-select"
-                           validate={[validators.requiredField]}
-                           required>
-                        <option value=""
-                                disabled
-                                hidden>Select your position
-                        </option>
-                        {positions && positions.map((item, index) => (
-                            <option key={index} value={item.id}>{item.name}</option>
-                        ))}
-                    </Field>
-                    <span className="registration-form__item-custom-appearance">
-                        <img src="/images/caret-down.svg" alt="custom-appearance"/>
-                    </span>
-                </div>
-                <div className="registration-form__item upload-item">
-                    <Field component={photoUpload}
-                           type={"file"}
-                           name="photo"
-                           label={<img src="/images/upload.svg" alt="upload-icon"/>}
-                           className="upload-item-box__field"
-                           validate={[validators.requiredPhoto, types, sizes, weight5mb]}
-                    />
-                    {/*<p className="upload-item__info">File format jpg  up to 5 MB, the minimum size of 70x70px</p>*/}
-                </div>
-                <button type={"submit"} className="submit-registration">Sign Up</button>
+                <Row>
+                    <div className="col-md-4">
+                        <div className="registration-form__item">
+                            <fieldset className="registration-form__item-wrap">
+                                <legend className="registration-form__item-name">Name</legend>
+                                <Field name="name"
+                                       component={renderField}
+                                       type="text"
+                                       label="Your name"
+                                       className="registration-form__item-field"
+                                       validate={[validators.requiredField, minLength2, maxLength60]}/>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        <div className="registration-form__item">
+                            <fieldset className="registration-form__item-wrap">
+                                <legend className="registration-form__item-name">Email</legend>
+                                <Field label={"Your email"}
+                                       name={"email"}
+                                       type={"email"}
+                                       component={renderField}
+                                       className="registration-form__item-field"
+                                       validate={[validators.requiredField, validators.email]}/>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        <div className="registration-form__item">
+                            <fieldset className="registration-form__item-wrap">
+                                <legend className="registration-form__item-name">Phone</legend>
+                                <Field component={renderField}
+                                       name={"phone"}
+                                       type={"phone"}
+                                       label={"+38 (___) ___ __ __"}
+                                       className="registration-form__item-field"
+                                       validate={[validators.requiredField, validators.phone]}/>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div className="col-md-6">
+                        <div className="registration-form__item select-item">
+                            <Field component={"select"}
+                                   name={"position"}
+                                   className="registration-form__item-field-select"
+                                   validate={[validators.requiredField]}
+                                   required>
+                                <option value=""
+                                        disabled
+                                        hidden>Select your position
+                                </option>
+                                {positions && positions.map((item, index) => (
+                                    <option key={index} value={item.id}>{item.name}</option>
+                                ))}
+                            </Field>
+                            <span className="registration-form__item-custom-appearance">
+                            <img src="/images/caret-down.svg" alt="custom-appearance"/>
+                        </span>
+                        </div>
+                    </div>
+                    <div className="col-md-6">
+                        <div className="registration-form__item upload-item">
+                            <Field component={photoUpload}
+                                   type={"file"}
+                                   name="photo"
+                                   label={<Fragment>
+                                       <img src="/images/upload.svg" alt="upload-icon"/>
+                                       <span>Upload</span>
+                                   </Fragment>}
+                                   className="upload-item-box__field"
+                                   validate={[validators.requiredPhoto, types, sizes, weight5mb]}
+                            />
+                            {/*<p className="upload-item__info">File format jpg  up to 5 MB, the minimum size of 70x70px</p>*/}
+                        </div>
+                    </div>
+                </Row>
+                <Row className="justify-content-center">
+                    <Col md={5} lg={4} xl={3} className="submit-registration-wrapper">
+                        <button type={"submit"} className="submit-registration">Sign Up</button>
+                    </Col>
+                </Row>
             </form>
         </div>
     );

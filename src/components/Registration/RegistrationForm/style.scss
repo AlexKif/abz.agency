@@ -105,6 +105,9 @@
   border: 2px solid $primaryColor;
   text-align: center;
   margin: 0;
+  span {
+    display: none;
+  }
 }
 
 .valid-error {
@@ -112,3 +115,78 @@
   color: red;
   margin: 0;
 }
+
+@media screen and(min-width: 768px){
+  .upload-item {
+    padding-top: 12px;
+    &-box {
+      margin: 0;
+    }
+  }
+  .label-icon-photo {
+    width: 178px;
+    img {
+      display: none;
+    }
+    span {
+      display: inline-block;
+      font-size: 20px;
+      color: $primaryColor;
+      font-family: $sourceSansPro-Bold;
+    }
+  }
+  .registration-headline {
+    margin-bottom: 21px;
+  }
+  .submit-registration {
+    margin-top: 60px;
+  }
+  .registration-sub-headline {
+    line-height: 22px;
+  }
+  .registration {
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-bottom: 120px;
+    &-form {
+      padding-top: 30px;
+      &__item-field-select {
+        margin-top: 12px;
+      }
+      &__item-custom-appearance {
+        top: 26px;
+      }
+    }
+  }
+}
+
+@media screen and(min-width: 1024px){
+  .registration {
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 142px;
+    &-form {
+      padding-top: 38px;
+      &__item-custom-appearance {
+        right: 20px;
+
+      }
+    }
+    &-headline {
+      margin-bottom: 14px;
+    }
+  }
+  .label-icon-photo {
+    width: 162px;
+  }
+}
+
+@media screen and(min-width: 1200px){
+  .registration {
+    padding-bottom: 152px;
+  }
+  .registration-form .submit-registration-wrapper {
+    padding: 0
+  }
+}
+
