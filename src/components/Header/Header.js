@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import './style.scss'
 import {getUser} from "../../actions/usersAction";
 import {connect} from "react-redux";
+import * as ReactDOM from "react-dom";
 
 class Header extends Component {
 
@@ -22,13 +23,31 @@ class Header extends Component {
         this.props.dispatch(getUser(1))
     }
 
+    componentWillUnmount() {
+        document.removeEventListener('click', this.handleClickOutside, false);
+    }
+
+    componentWillMount() {
+        document.addEventListener('click', this.handleClickOutside, false);
+    }
+
+    handleClickOutside = (event) => {
+        const domNode = ReactDOM.findDOMNode(this);
+        if (!domNode || !domNode.contains(event.target)) {
+            this.setState({
+                menuOpen : false
+            });
+        }
+    };
+
+
     render() {
         const {menuOpen} = this.state;
         return (
             <header className="header">
                 <div className="custom-container header-wrap">
                     <h1 className="logo"><Link to="/" className="d-block"><img src="./images/logo.svg" alt="abz" className="logo__abz"/></Link></h1>
-                    <menu className={menuOpen ? "main-menu": "main-menu menu-hidden"}>
+                    <div className={menuOpen ? "main-menu": "main-menu menu-hidden"}>
                         {this.props.user ? (
                         <div className="authorized-user">
                             <div className="user-photo">
@@ -49,9 +68,10 @@ class Header extends Component {
                             <Link to="/sign-up" className="navigation__item">Sign Up</Link>
                             <Link to="/sign-out" className="navigation__item">Sign Out</Link>
                         </nav>
-                    </menu>
+                    </div>
                     <button type="button" className="main-menu-btn" onClick={this.handleClick}><img src="./images/line-menu.svg" alt="menu"/></button>
                 </div>
+                <div className="wrapper"></div>
             </header>
         );
     }

@@ -10,17 +10,19 @@ import Registration from "./components/Registration/Registration";
 import './App.scss';
 
 function App() {
-  return (
-    <div className="App">
-        <Header/>
-        <Banner/>
-        <Acquainted/>
-        <Technologies/>
-        <Requirements/>
-        <Users/>
-        <Registration/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Header/>
+            <Banner/>
+            <Acquainted/>
+            <Technologies/>
+            <Requirements/>
+            <Users/>
+            <Registration/>
+        </div>
+    );
 }
 
 export default App;
+
+

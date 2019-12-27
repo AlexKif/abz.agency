@@ -35,8 +35,10 @@
   background: $whiteColor;
   margin: 0;
   left: 0;
-  padding: 10px 0 0 0;
+  top: 0;
+  padding: 32px 0 0 0;
   z-index: 5;
+  overflow: scroll;
   &-btn {
     background: none;
     border: none;
@@ -110,7 +112,9 @@
 //Desktop menu
 
 @media screen and (min-width: 1024px){
-
+  .main-menu {
+    overflow: auto;
+  }
   .header {
     padding: 0 20px;
     &-wrap {
