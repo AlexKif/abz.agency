@@ -71,7 +71,8 @@ class Header extends Component {
                     </div>
                     <button type="button" className="main-menu-btn" onClick={this.handleClick}><img src="./images/line-menu.svg" alt="menu"/></button>
                 </div>
-                <div className="wrapper"></div>
+                <div className="wrapper">
+                </div>
             </header>
         );
     }

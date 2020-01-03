@@ -22,41 +22,35 @@ function RegistrationForm(props) {
                 <Row>
                     <div className="col-md-4">
                         <div className="registration-form__item">
-                            <fieldset className="registration-form__item-wrap">
-                                <legend className="registration-form__item-name">Name</legend>
-                                <Field name="name"
-                                       component={renderField}
-                                       type="text"
-                                       label="Your name"
-                                       className="registration-form__item-field"
-                                       validate={[validators.requiredField, minLength2, maxLength60]}/>
-                            </fieldset>
+                            <Field name="name"
+                                   component={renderField}
+                                   type="text"
+                                   legend="Name"
+                                   label="Your name"
+                                   className="registration-form__item-field"
+                                   validate={[validators.requiredField, minLength2, maxLength60]}/>
                         </div>
                     </div>
                     <div className="col-md-4">
                         <div className="registration-form__item">
-                            <fieldset className="registration-form__item-wrap">
-                                <legend className="registration-form__item-name">Email</legend>
-                                <Field label={"Your email"}
-                                       name={"email"}
-                                       type={"email"}
-                                       component={renderField}
-                                       className="registration-form__item-field"
-                                       validate={[validators.requiredField, validators.email]}/>
-                            </fieldset>
+                            <Field label={"Your email"}
+                                   name={"email"}
+                                   type={"email"}
+                                   legend="Email"
+                                   component={renderField}
+                                   className="registration-form__item-field"
+                                   validate={[validators.requiredField, validators.email]}/>
                         </div>
                     </div>
                     <div className="col-md-4">
                         <div className="registration-form__item">
-                            <fieldset className="registration-form__item-wrap">
-                                <legend className="registration-form__item-name">Phone</legend>
-                                <Field component={renderField}
-                                       name={"phone"}
-                                       type={"phone"}
-                                       label={"+38 (___) ___ __ __"}
-                                       className="registration-form__item-field"
-                                       validate={[validators.requiredField, validators.phone]}/>
-                            </fieldset>
+                            <Field component={renderField}
+                                   name={"phone"}
+                                   type={"phone"}
+                                   legend="Phone"
+                                   label={"+38 (___) ___ __ __"}
+                                   className="registration-form__item-field"
+                                   validate={[validators.requiredField, validators.phone]}/>
                         </div>
                     </div>
                     <div className="col-md-6">
@@ -91,7 +85,7 @@ function RegistrationForm(props) {
                                    className="upload-item-box__field"
                                    validate={[validators.requiredPhoto, types, sizes, weight5mb]}
                             />
-                            {/*<p className="upload-item__info">File format jpg  up to 5 MB, the minimum size of 70x70px</p>*/}
+                            <p className="upload-item__info">File format jpg  up to 5 MB, the minimum size of 70x70px</p>
                         </div>
                     </div>
                 </Row>
