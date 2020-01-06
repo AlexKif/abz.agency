@@ -17,7 +17,7 @@ class Registration extends Component {
 
     onSubmit = (data) => {
         console.log('data', data);
-        usersServices.addUser(data).then(_ => this.props.dispatch(updateUsers(1, numberOfUsers())));
+        usersServices.addUser(data, this.props.currentPosition).then(_ => this.props.dispatch(updateUsers(1, numberOfUsers())));
         this.props.dispatch(reset("registration"));
     };
 
@@ -33,9 +33,10 @@ class Registration extends Component {
     }
 }
 
-const mapStateToProps = ({usersReducer}) => {
+const mapStateToProps = ({usersReducer, registrationReducer}) => {
     return {
-        positions: usersReducer.positions
+        positions: usersReducer.positions,
+        currentPosition: registrationReducer.currentPosition
     }
 };
 

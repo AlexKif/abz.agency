@@ -1,10 +1,11 @@
 import React, {Fragment} from 'react';
 import {Field, reduxForm} from "redux-form";
-import {photoUpload, renderField} from "../../../helpers/renderFiled";
+import {photoUpload, renderDropDown, renderField} from "../../../helpers/renderFiled";
 import {validators} from "../../../helpers/validators/validators";
 
 import './style.scss'
 import {Col, Row} from "reactstrap";
+import SelectField from "./SelectField/SelectField";
 
 const maxLength60 = validators.maxLength(60);
 const minLength2 = validators.minLength(2);
@@ -15,6 +16,8 @@ const types = validators.validateImageFormat("image/jpeg, image/jpg");
 function RegistrationForm(props) {
 
     const {positions} = props.position;
+
+
 
     return (
         <div className="registration-form">
@@ -54,24 +57,18 @@ function RegistrationForm(props) {
                         </div>
                     </div>
                     <div className="col-md-6">
-                        <div className="registration-form__item select-item">
-                            <Field component={"select"}
-                                   name={"position"}
-                                   className="registration-form__item-field-select"
-                                   validate={[validators.requiredField]}
-                                   required>
-                                <option value=""
-                                        disabled
-                                        hidden>Select your position
-                                </option>
-                                {positions && positions.map((item, index) => (
-                                    <option key={index} value={item.id}>{item.name}</option>
-                                ))}
-                            </Field>
-                            <span className="registration-form__item-custom-appearance">
-                            <img src="/images/caret-down.svg" alt="custom-appearance"/>
-                        </span>
-                        </div>
+                        {/*<div className="registration-form__item select-item">*/}
+                        {/*    <Field component={renderDropDown}*/}
+                        {/*           name={"position"}*/}
+                        {/*           className="registration-form__item-field-select"*/}
+                        {/*           required*/}
+                        {/*           positions={positions}*/}
+                        {/*    />*/}
+                        {/*</div>*/}
+                        {/*<span className="registration-form__item-custom-appearance">*/}
+                        {/*    <img src="/images/caret-down.svg" alt="custom-appearance"/>*/}
+                        {/*</span>*/}
+                        <SelectField positions={positions}/>
                     </div>
                     <div className="col-md-6">
                         <div className="registration-form__item upload-item">
@@ -85,7 +82,7 @@ function RegistrationForm(props) {
                                    className="upload-item-box__field"
                                    validate={[validators.requiredPhoto, types, sizes, weight5mb]}
                             />
-                            <p className="upload-item__info">File format jpg  up to 5 MB, the minimum size of 70x70px</p>
+                            <p className="upload-item__info">File format jpg up to 5 MB, the minimum size of 70x70px</p>
                         </div>
                     </div>
                 </Row>

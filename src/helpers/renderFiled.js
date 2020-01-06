@@ -1,39 +1,22 @@
 import React, {Fragment} from "react";
+import {Field} from "redux-form";
 
 export const renderField = ({input, legend, label, className, type, meta: { active, touched, error, warning }}) => {
-    // const field = document.getElementsByClassName(className)[0];
-    // const parent = field.parentElement;
-    // console.log(field);
-    // for (let key in field) {
-    //     switch () {
-    //
-    //     }
-    //     console.log(key, field[key]);
-    // }
-    // console.log(field);
-    // if (active) {
-    //     const fieldName = input.name;
-    //     const parent = field.parentNode;
-    //     console.log('active', fieldName);
-    // }
-    const fieldSet = document.querySelector('.registration-form__item-wrap');
-    const legendCust = document.querySelector('.registration-form__item-name');
-    if (active) {
-        fieldSet.style.borderColor = 'red';
-        legendCust.style.color = 'red'
-
-    } else if (!active) {
-        console.log(fieldSet);
-        // fieldSet.style.borderColor = 'black';
-        // legendCust.style.color = 'black'
-    }
+    const fieldStatus = () => {
+        if (touched && error) {
+            return "registration-form__item-wrap field-err"
+        } else if (active) {
+            return "registration-form__item-wrap active-field"
+        }
+        return "registration-form__item-wrap"
+    };
 
     return (
         <Fragment>
-            <fieldset className="registration-form__item-wrap">
+            <fieldset className={fieldStatus()}>
                 <legend className="registration-form__item-name">{legend}</legend>
                 <label htmlFor={input.name} className="d-none">{label}</label>
-                <input {...input} type={type} className={className} placeholder={label} id={input.name} />
+                <input {...input} type={type} className={className} placeholder={touched && error ? null: label} id={input.name} />
             </fieldset>
             {touched &&
             ((error && <p className="valid-error">{error}</p>) || (warning && <p>{warning}</p>))}
@@ -42,7 +25,6 @@ export const renderField = ({input, legend, label, className, type, meta: { acti
 
 export const photoUpload = ({ input, type, meta, label, className }) => {
     delete input.value;
-    console.log(meta);
     const handleChange = (event, input) => {
         event.preventDefault();
         let imageFile = event.target.files[0];
@@ -76,9 +58,19 @@ export const photoUpload = ({ input, type, meta, label, className }) => {
             </div>
 
             {(meta.touched && !meta.active && meta.error) && (
-                <span className="upload-item__info">{meta.error}</span>
+                <span className="valid-error image-error">{meta.error}</span>
             )}
         </Fragment>
+    );
+};
+
+export const renderDropDown = ({input, name, className, positions}) => {
+    return (
+        <select {...input} name={name} className={className}>
+            {positions && positions.map((item, index) => (
+                <option key={index} value={item.id}>{item.name}</option>
+            ))}
+        </select>
     );
 };
 

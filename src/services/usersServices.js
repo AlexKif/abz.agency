@@ -29,11 +29,10 @@ function getUserToken() {
     return axios.get(`${baseURL}/token`).then(res => res.data)
 }
 
-function addUser({email, name, phone, photo, position}) {
+function addUser({email, name, phone, photo}, {value}) {
 
     const formData = new FormData();
-
-    formData.append('position_id', Number(position));
+    formData.append('position_id', value);
     formData.append('name', name);
     formData.append('email', email);
     formData.append('phone', phone);
