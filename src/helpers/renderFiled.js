@@ -1,5 +1,4 @@
 import React, {Fragment} from "react";
-import {Field} from "redux-form";
 
 export const renderField = ({input, legend, label, className, type, meta: { active, touched, error, warning }}) => {
     const fieldStatus = () => {

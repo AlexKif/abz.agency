@@ -1,5 +1,13 @@
 @import "../../variables";
 
+.registration {
+  padding-bottom: 70px;
+}
+
+.registration-title-wrap {
+  padding-bottom: 15px;
+}
+
 .registration-form {
   padding-top: 5px;
   &__item {
@@ -49,13 +57,26 @@
       z-index: -1;
     }
   }
+  .css-1wa3eu0-placeholder {
+    font-size: 16px;
+    color: #000;
+    font-family: $sourceSansPro-Regular;
+  }
 }
 
-.select-item {
-  position: relative;
-  z-index: 2;
-
+.d-none {
+  display: none;
 }
+
+.select-field {
+  padding-top: 12px;
+  .additional-input {
+    position: absolute;
+    height: 0;
+    opacity: 0;
+  }
+}
+
 
 .upload-item {
   &-box {
@@ -63,6 +84,7 @@
     justify-content: space-between;
     margin: 35px 0 0;
     position: relative;
+
     &__field {
       display: none;
     }
@@ -73,7 +95,6 @@
     letter-spacing: .1px;
     color: #8d8c8c;
     line-height: 16px;
-    //position: absolute;
   }
 }
 
@@ -86,7 +107,8 @@
   font-family: $sourceSansPro-Bold;
   border: none;
   border-radius: 5px;
-  margin-top: 40px;
+  margin-top: 10px;
+
 }
 
 .label-text-filed {
@@ -154,7 +176,7 @@
     margin-bottom: 21px;
   }
   .submit-registration {
-    margin-top: 60px;
+    margin-top: 9px;
   }
   .registration-sub-headline {
     line-height: 22px;
@@ -191,6 +213,9 @@
       margin-bottom: 14px;
     }
   }
+  .submit-registration {
+    margin-top: 24px;
+  }
   .label-icon-photo {
     width: 162px;
   }
@@ -220,4 +245,3 @@
 .field-err .registration-form__item-name {
   color: red;
 }
-

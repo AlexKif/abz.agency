@@ -12,9 +12,7 @@ function User(props) {
                 {props.users && props.users.map((user, index) => (
                     <Col key={index} sm={12} md={4} className="user-item">
                         <div className="user-container">
-                            <div className="user__photo">
-                                <img src={user.photo} alt="user"/>
-                            </div>
+                            <img className="user__photo" src={user.photo} alt="user"/>
                             <div className="user-information">
                                 <TextTruncate
                                     className="user-information__name"

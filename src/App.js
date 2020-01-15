@@ -6,6 +6,7 @@ import Technologies from "./components/Technologies/Technologies";
 import Requirements from "./components/Requirements/Requirements";
 import Users from "./components/Users/Users";
 import Registration from "./components/Registration/Registration";
+import Footer from "./components/Footer/Footer";
 
 import './App.scss';
 
@@ -19,6 +20,7 @@ function App() {
             <Requirements/>
             <Users/>
             <Registration/>
+            <Footer/>
         </div>
     );
 }

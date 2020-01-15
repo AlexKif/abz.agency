@@ -56,7 +56,7 @@ function RegistrationForm(props) {
                                    validate={[validators.requiredField, validators.phone]}/>
                         </div>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-6 select-field">
                         {/*<div className="registration-form__item select-item">*/}
                         {/*    <Field component={renderDropDown}*/}
                         {/*           name={"position"}*/}
@@ -65,9 +65,6 @@ function RegistrationForm(props) {
                         {/*           positions={positions}*/}
                         {/*    />*/}
                         {/*</div>*/}
-                        {/*<span className="registration-form__item-custom-appearance">*/}
-                        {/*    <img src="/images/caret-down.svg" alt="custom-appearance"/>*/}
-                        {/*</span>*/}
                         <SelectField positions={positions}/>
                     </div>
                     <div className="col-md-6">
